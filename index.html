@@ -6,34 +6,86 @@
   <title>Geolava Email Templates</title>
   <style>
     body { font-family: Inter, -apple-system, sans-serif; background: #FEFEFB; color: #282823; margin: 0; padding: 40px 20px; }
-    .container { max-width: 480px; margin: 0 auto; }
+    .container { max-width: 520px; margin: 0 auto; }
     h1 { font-weight: 200; font-size: 32px; margin-bottom: 8px; }
     p { color: #4D4D4B; font-size: 16px; line-height: 24px; }
     .cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
-    a.card { display: block; padding: 20px 24px; background: #fff; border: 1px solid #DFDFDE; border-radius: 12px; text-decoration: none; color: #282823; transition: border-color 0.2s; }
-    a.card:hover { border-color: #6266E6; }
+    .card { padding: 20px 24px; background: #fff; border: 1px solid #DFDFDE; border-radius: 12px; }
     .card-title { font-weight: 600; font-size: 18px; margin-bottom: 4px; }
-    .card-desc { font-size: 14px; color: #939391; }
+    .card-desc { font-size: 14px; color: #939391; margin-bottom: 12px; }
+    .card-actions { display: flex; gap: 10px; }
+    .btn { display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; cursor: pointer; border: none; }
+    .btn-preview { background: #F3F3F0; color: #282823; }
+    .btn-preview:hover { background: #E8E8E4; }
+    .btn-copy { background: #6266E6; color: #FEFEFB; }
+    .btn-copy:hover { background: #5255D0; }
+    .btn-copy.copied { background: #34A853; }
+    .steps { margin-top: 32px; padding: 20px 24px; background: #F3F3F0; border-radius: 12px; }
+    .steps h3 { font-size: 14px; font-weight: 600; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.5px; color: #939391; }
+    .steps ol { margin: 0; padding-left: 20px; }
+    .steps li { font-size: 14px; line-height: 22px; color: #4D4D4B; margin-bottom: 4px; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Geolava Emails</h1>
-    <p>Click to preview each email template. Copy the HTML source to paste into Intercom.</p>
+    <p>Preview each email template, then copy the HTML to paste into Intercom.</p>
+
     <div class="cards">
-      <a class="card" href="welcome/welcome-intercom.html">
+      <div class="card">
         <div class="card-title">Welcome</div>
         <div class="card-desc">Onboarding email with hero image, checklist, and CTA</div>
-      </a>
-      <a class="card" href="invited/invited-intercom.html">
+        <div class="card-actions">
+          <a class="btn btn-preview" href="welcome/welcome-intercom.html" target="_blank">Preview</a>
+          <button class="btn btn-copy" onclick="copyHTML('welcome/welcome-intercom.html', this)">Copy HTML</button>
+        </div>
+      </div>
+      <div class="card">
         <div class="card-title">Invited</div>
         <div class="card-desc">Signup confirmation email</div>
-      </a>
-      <a class="card" href="analysis-ready/analysis-ready-intercom.html">
+        <div class="card-actions">
+          <a class="btn btn-preview" href="invited/invited-intercom.html" target="_blank">Preview</a>
+          <button class="btn btn-copy" onclick="copyHTML('invited/invited-intercom.html', this)">Copy HTML</button>
+        </div>
+      </div>
+      <div class="card">
         <div class="card-title">Analysis is Ready</div>
         <div class="card-desc">Notification with hero illustration and analysis link</div>
-      </a>
+        <div class="card-actions">
+          <a class="btn btn-preview" href="analysis-ready/analysis-ready-intercom.html" target="_blank">Preview</a>
+          <button class="btn btn-copy" onclick="copyHTML('analysis-ready/analysis-ready-intercom.html', this)">Copy HTML</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <h3>How to use</h3>
+      <ol>
+        <li>Click <strong>Copy HTML</strong> on the email you need</li>
+        <li>In Intercom, create a new Email message</li>
+        <li>Click <strong>Switch to HTML editor</strong></li>
+        <li>Select all (Cmd+A) and paste (Cmd+V)</li>
+      </ol>
     </div>
   </div>
+
+  <script>
+    async function copyHTML(path, btn) {
+      try {
+        const res = await fetch(path);
+        const html = await res.text();
+        await navigator.clipboard.writeText(html);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy HTML';
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (e) {
+        // Fallback: open raw file
+        window.open('https://raw.githubusercontent.com/Olyaabra/geolava-email-assets/main/' + path, '_blank');
+      }
+    }
+  </script>
 </body>
 </html>
