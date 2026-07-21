@@ -32,14 +32,12 @@
       <td align="center">
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="email-container" style="max-width: 600px; width: 100%; background-color: #FEFEFB;">
 
-          <!-- LOGO: Replace https://olyaabra.github.io/geolava-email-assets/welcome/logo-resized.png with your hosted logo URL -->
           <tr>
             <td class="stack-cell" style="padding: 40px 40px 16px 40px;">
               <img src="https://olyaabra.github.io/geolava-email-assets/welcome/logo-resized.png" alt="Geolava" width="92" height="23" style="display: block; border: 0; outline: none; text-decoration: none; width: 92px; height: 23px;" />
             </td>
           </tr>
 
-          <!-- HEADING + BODY TEXT -->
           <tr>
             <td class="stack-cell" style="padding: 120px 40px 32px 40px;">
               <h1 class="heading" style="margin: 0 0 24px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 200; color: #282823; line-height: 52px; letter-spacing: -0.96px;">Extra Usage Requested</h1>
@@ -48,26 +46,15 @@
             </td>
           </tr>
 
-          <!-- WORKSPACE CARD + DATA TABLE -->
           <tr>
             <td class="stack-cell" style="padding: 60px 40px 32px 40px;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <!-- Workspace Icon + Name -->
                 <tr>
                   <td style="padding-bottom: 24px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="workspace-card" style="width: 520px;">
                       <tr>
                         <td width="96" valign="middle" style="padding-right: 24px;">
-                          <!--[if mso]>
-                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:96px;height:96px;" arcsize="11%" fillcolor="#F7F6F1" strokecolor="#DFDFDE" strokeweight="1px">
-                            <v:fill type="frame" src="{{workspace_logo_url}}" />
-                          </v:roundrect>
-                          <![endif]-->
-                          <!--[if !mso]><!-->
-                          <div class="workspace-icon" style="width: 96px; height: 96px; background-color: #F7F6F1; border: 1px solid #DFDFDE; border-radius: 10.67px; box-shadow: 0 0 5.33px rgba(0,0,0,0.06); overflow: hidden; text-align: center; line-height: 96px;">
-                            <img src="{{workspace_logo_url}}" alt="Workspace logo" width="82" height="82" style="display: inline-block; border: 0; max-width: 82px; max-height: 82px; vertical-align: middle;" />
-                          </div>
-                          <!--<![endif]-->
+                          <img src="{{workspace_logo_url}}" alt="{{workspace_name}}" width="96" height="96" class="workspace-icon" style="display: block; border: 1px solid #DFDFDE; border-radius: 10.67px; width: 96px; height: 96px;" />
                         </td>
                         <td valign="middle">
                           <p class="subheading" style="margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 32px; font-weight: 200; color: #282823; line-height: 44px; letter-spacing: -0.64px;">{{workspace_name}}<br />Workspace</p>
@@ -76,23 +63,18 @@
                     </table>
                   </td>
                 </tr>
-
-                <!-- Data Table -->
                 <tr>
                   <td>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                      <!-- Row: Plan limit -->
                       <tr>
                         <td style="padding: 20px 16px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                           <span style="color: #939391;">Plan limit: </span>
                           <span style="color: #282823;">{{plan_limit}}</span>
                         </td>
                       </tr>
-                      <!-- Divider -->
                       <tr>
                         <td style="padding: 0; font-size: 0; line-height: 0; height: 1px; background-color: #DFDFDE;">&nbsp;</td>
                       </tr>
-                      <!-- Row: Auto-resets -->
                       <tr>
                         <td style="padding: 20px 16px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                           <span style="color: #939391;">Auto-resets: </span>
@@ -106,14 +88,12 @@
             </td>
           </tr>
 
-          <!-- EXPLAINER TEXT -->
           <tr>
             <td class="stack-cell" style="padding: 32px 40px;">
               <p class="body-text" style="margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 300; color: #282823; line-height: 24px;">You can approve extra usage now, or wait until the limit resets automatically</p>
             </td>
           </tr>
 
-          <!-- CTA BUTTON -->
           <tr>
             <td class="stack-cell" style="padding: 0 40px 120px 40px;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0">
@@ -134,14 +114,12 @@
             </td>
           </tr>
 
-          <!-- INTERCOM CONTENT (hidden, required for validation) -->
           <tr>
             <td style="font-size: 0; line-height: 0; height: 0; overflow: hidden; mso-hide: all; display: none; max-height: 0;">
               {{content}}
             </td>
           </tr>
 
-          <!-- FOOTER -->
           <tr>
             <td style="padding: 40px;" align="center">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
